@@ -10,3 +10,10 @@ after_success:
   - docker build -t mosleim/fibo-nginx ./nginx
   - docker build -t mosleim/fibo-server ./server
   - docker build -t mosleim/fibo-worker ./worker
+  # login to docker hub
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # take those images and push them to docker hub
+  - docker push mosleim/fibo-client
+  - docker push mosleim/fibo-nginx
+  - docker push mosleim/fibo-server
+  - docker push mosleim/fibo-worker
