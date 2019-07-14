@@ -14,7 +14,7 @@
             "essential": false
         },
         {
-            "name": "server",
+            "name": "worker",
             "image": "mosleim/fibo-worker",
             "hostname":"worker",
             "essential": false
