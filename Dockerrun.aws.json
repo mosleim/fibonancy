@@ -31,10 +31,6 @@
                 }
             ],
             "links":["client", "server"]
-        },
-        {
-            "name": "postgress",
-            "image": "postgres"
         }
     ]
 }
