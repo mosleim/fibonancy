@@ -1,0 +1,40 @@
+{
+    "AWSEBDockerrunVersion":2,
+    "containerDefinitions":[
+        {
+            "name":"client",
+            "image":"mosleim/fibo-client",
+            "hostname": "client",
+            "essential": false 
+        },
+        {
+            "name": "server",
+            "image": "mosleim/fibo-server",
+            "hostname": "api",
+            "essential": false
+        },
+        {
+            "name": "server",
+            "image": "mosleim/fibo-worker",
+            "hostname":"worker",
+            "essential": false
+        },
+        {
+            "name": "nginx",
+            "image":"mosleim/fibo-nginx",
+            "hostname":"nginx",
+            "essential": true,
+            "portMappings":[
+                {
+                    "hostPort":80,
+                    "containerPort":80
+                }
+            ],
+            "links":["client", "server"]
+        },
+        {
+            "name": "postgress",
+            "image": "postgres"
+        }
+    ]
+}
